@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 import { StreamingTextResponse } from 'ai'
-import model from '@/llms/llm.ollama'
+import model from '@/llms/llm'
 
 export const GET = async (req: NextRequest) => {
   const message = req.nextUrl.searchParams.get('message') as string

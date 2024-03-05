@@ -65,7 +65,22 @@ export default function Home () {
       <h1 className='text-3xl'>Retrivals</h1>
       <ul>
         <li>
-          <Link href='/api/chains/basic'>Basic Chain</Link>
+          <Link href='/api/documents/basic'>Basic Chain</Link>
+        </li>
+        <li>
+          <Link href='/api/documents/combine'>Combine Chain</Link>
+        </li>
+        <li>
+          <Link href='/api/documents/loader'>Loader Chain</Link>
+        </li>
+        <li>
+          <Link href='/api/documents/splitter'>Splitter Chain</Link>
+        </li>
+      </ul>
+      <h1 className='text-3xl'>Chat</h1>
+      <ul>
+        <li>
+          <Link href='/api/chat/basic'>Basic Chat History</Link>
         </li>
       </ul>
     </div>

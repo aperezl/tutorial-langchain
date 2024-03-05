@@ -5,8 +5,8 @@ import {
 } from '@langchain/core/output_parsers'
 import { StructuredOutputParser } from 'langchain/output_parsers'
 import { z } from 'zod'
-
-import model from '@/llms/llm.ollama'
+import { MessagesPlaceholder } from '@langchain/core/prompts'
+import model from '@/llms/llm'
 
 const prompt = ChatPromptTemplate.fromTemplate(
   'Eres un cómico que hablas en español. Cuenta un chiste relacionado con {input}'
@@ -73,3 +73,23 @@ export const getPromptWithParserZod = async (phrase: string) =>
 // Make Template
 export const makeTemplate = (template: string) =>
   ChatPromptTemplate.fromTemplate(template)
+
+export const makeTemplateWithMessages = () =>
+  ChatPromptTemplate.fromMessages([
+    [
+      'system',
+      "Answer the user's question based on the following context: {context}."
+    ],
+    new MessagesPlaceholder('chat_history'),
+    ['user', '{input}']
+  ])
+
+export const makeRetrieverPrompt = () =>
+  ChatPromptTemplate.fromMessages([
+    new MessagesPlaceholder('chat_history'),
+    ['user', '{input}'],
+    [
+      'user',
+      'Given the adove conversation, generate a search query to look up in order to get information relevant to the conversation'
+    ]
+  ])

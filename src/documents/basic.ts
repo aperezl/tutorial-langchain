@@ -1,4 +1,4 @@
-import model from '@/llms/llm.ollama'
+import model from '@/llms/llm'
 import { makeTemplate } from '@/prompts/templates'
 
 export const getRetrival = async () => {

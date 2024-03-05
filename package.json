@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cloudflare/workers-types": "^4.20240222.0",
+    "@langchain/cloudflare": "^0.0.3",
     "@langchain/community": "^0.0.34",
     "ai": "^3.0.2",
+    "cheerio": "^1.0.0-rc.12",
     "langchain": "^0.1.25",
     "next": "14.1.1",
     "react": "^18",
