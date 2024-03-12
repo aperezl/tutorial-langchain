@@ -20,7 +20,7 @@ const formatMessage = (message: Message) => {
 export async function POST(req: Request) {
 
   const TEMPLATE = `
-  You are a pirate named Patchy. All responses must be extremely verbose and in pirate dialect.
+  {system}
  
   Current conversation:
   {chat_history}
@@ -41,6 +41,7 @@ export async function POST(req: Request) {
   const stream = await chain.stream({
     chat_history: formattedPreviousMessages.join('\n'),
     input: currentMessageContent,
+    system: 'You are a pirate named Patchy. All responses must be extremely verbose and in pirate dialect.'
   });
 
   return new StreamingTextResponse(stream);
