@@ -7,9 +7,9 @@ const Message: any = ({ role, content }: any) => {
   return (
   <div className='py-3'>
     <div className={`flex ${role === 'user' ? 'flex-row-reverse' : ''}`}>
-      <div className={`relative w-16 h-16 mx-3`}>
-        <div className={`w-12 h-12 rounded-full justify-center items-center ${role === 'user' ? 'bg-green-400' : 'bg-slate-400'}`}>
-          <img alt='profile picture' src={user.picture} className='w-12 h-12 rounded-full'/>
+      <div className={`relative w-16 h-16`}>
+        <div className={`w-12 h-12 rounded-full text-center items-center ${role === 'user' ? 'ml-auto' : 'mr-auto'}`}>
+          <img alt='picture' src={role === 'user' ? user.picture : '/logo.png'} className='w-12 h-12 rounded-full'/>
         </div>
       </div>
       <div className='flex flex-col'>
