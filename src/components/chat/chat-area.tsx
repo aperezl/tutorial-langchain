@@ -1,5 +1,5 @@
 'use client'
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Message } from '@/components/chat/message'
 import { useChat } from 'ai/react'
@@ -8,6 +8,16 @@ import { Assistant } from '@/data/assistant'
 interface pageProps {
   assistant: Assistant
 
+}
+
+function useChatScroll<T>(dep: T): any {
+  const ref = useRef<HTMLDivElement>();
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollTop = ref.current.scrollHeight;
+    }
+  }, [dep]);
+  return ref
 }
 
 const ChatArea: FC<pageProps> = ({ assistant }) => {
@@ -20,6 +30,8 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
     sendExtraMessageFields: true
   })
   const { user } = useUser()
+  const ref = useChatScroll(messages)
+
   useEffect(() => {
     console.log('load')
     console.log(localStorage.getItem(assistant.id))
@@ -59,7 +71,7 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
         </div>
       </div>
 
-      <div className='flex flex-col grow p-6 bg-chat overflow-y-auto'>
+      <div className='flex flex-col grow p-6 bg-chat overflow-y-auto'  ref={ref}>
         {messages.map(m => (
           <div key={m.id}>
             <Message content={m.content} role={m.role} image={assistant.image} />
