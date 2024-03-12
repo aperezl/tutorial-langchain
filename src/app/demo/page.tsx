@@ -99,9 +99,7 @@ const ChatArea = () => (
 
     <div className='flex items-center p-6 gap-3 bg-cyan-900'>
       <div className='flex flex-col flex-1 ml-4 h-24 p-1'>
-        <textarea className='border-2 w-full h-full bg-gray-200 rounded-md'>
-          Hola
-        </textarea>
+        <textarea className='border-2 w-full h-full bg-gray-200 rounded-md' defaultValue='Hola' />
       </div>
       <div className='flex items-center space-x-6 ml-auto text-gray-400'>
         <Button className=''>Send</Button>
@@ -139,7 +137,7 @@ const Threads = () => (
     </div>
     <div className='p-6'>
       <p className='flex items-center text-gray-400'>
-        <div>Ico</div>
+        <span>Ico</span>
         <span className='uppercase text-sm font-medium ml-3'>Bookmarked</span>
       </p>
       <div>
