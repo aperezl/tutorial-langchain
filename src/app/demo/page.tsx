@@ -13,7 +13,7 @@ const page: FC<pageProps> = ({ }) => {
   return (
     <div className='flex flex-col lg:flex-row h-screen'>
       <Threads />
-      Meted cosas aquí
+      Meter cosas
     </div>
   )
 }
