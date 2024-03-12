@@ -14,6 +14,7 @@ interface pageProps {
   params: { id: string }
 }
 
+
 const page: FC<pageProps> = ({ params }) => {
 
   const assistant = assistants.find(a => a.id === params.id)
