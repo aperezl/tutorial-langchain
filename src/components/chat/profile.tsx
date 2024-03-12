@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
 const Profile = ({username}: {username: string}) => (
@@ -8,11 +9,9 @@ const Profile = ({username}: {username: string}) => (
         <h2 className='text-xl font-bold'>Profile Details</h2>
         <Button>x</Button>
       </div>
-      <div className='flex flex-col p-6'>
-        <div className='w-32 h-32 rounded-full object-cover bg-green-600'>
-          <div className='w-[128px] h-[128px]'>{username.length ? username[0] : '-'}</div>
-        </div>
-        <div className='flex flex-col items-center mb-3'>
+      <div className='flex flex-col items-center p-6'>
+        <Image src="/akira-toriyama.jpg" className='rounded-full' width={128} height={128} alt="userImage" />
+        <div className='flex flex-col mb-3'>
           <h3 className='text-lg font-bold mb-1'>{username}</h3>
         </div>
       </div>
