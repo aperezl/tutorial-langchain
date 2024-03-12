@@ -14,7 +14,7 @@ import { createHistoryAwareRetriever } from 'langchain/chains/history_aware_retr
 
 import { AIMessage, HumanMessage } from '@langchain/core/messages'
 
-const createVectorStore = async () => {
+export const createVectorStore = async () => {
   const loader = new CheerioWebBaseLoader(
     'https://js.langchain.com/docs/expression_language/'
   )
@@ -32,11 +32,11 @@ const createVectorStore = async () => {
   return vectorStore
 }
 
-const createChain = async (vectorStore: MemoryVectorStore) => {
+export const createChain = async (vectorStore: MemoryVectorStore) => {
   const prompt = makeTemplateWithMessages()
 
   const retriever = vectorStore.asRetriever({
-    k: 8
+    k: 1
   })
 
   const historyAwareRetriever = await createHistoryAwareRetriever({
@@ -54,8 +54,13 @@ const createChain = async (vectorStore: MemoryVectorStore) => {
 }
 
 export const getRetrival = async () => {
+
+  console.log('init')
   const vectorStore = await createVectorStore()
+  console.log('create_vector')
+
   const chain = await createChain(vectorStore)
+  console.log('create_chain')
 
   const chatHistory = [
     new HumanMessage('Hola'),
@@ -65,7 +70,6 @@ export const getRetrival = async () => {
     new HumanMessage('¿Qué es LCEL?'),
     new AIMessage('LCEL son las siglas de Langchain Expression Language')
   ]
-
   const response = await chain.invoke({
     input: '¿Qué es esto?',
     chat_history: chatHistory
