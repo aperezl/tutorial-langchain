@@ -24,7 +24,7 @@ const page: FC<pageProps> = ({ params }) => {
         <ChatArea assistant={assistant} />
         <div className='hidden lg:block w-full max-w-xs overflow-y-auto bg-slate-200'>
           <Profile />
-          <ModelInfo />
+          <ModelInfo assistant={assistant} />
         </div>
       </div>
     </div>
