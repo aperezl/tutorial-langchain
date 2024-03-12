@@ -1,5 +1,4 @@
-import './loading.css'; // Estilo CSS para la página de carga
-
+import './loading.css'
 export function LoadingPage() {
 
     return (
@@ -8,7 +7,7 @@ export function LoadingPage() {
           <div className="spinner"></div>
         </div>
       </div>
-    );
+    )
   }
 
-export default LoadingPage;
+export default LoadingPage

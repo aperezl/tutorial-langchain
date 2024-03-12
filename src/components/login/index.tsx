@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Image from 'next/image';
-import { Button } from '../ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Image from 'next/image'
+import { Button } from '../ui/button'
 
 export function LoginPage() {
 
@@ -23,4 +23,4 @@ export function LoginPage() {
 
 
 
-export default LoginPage;
+export default LoginPage
