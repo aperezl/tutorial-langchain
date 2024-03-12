@@ -20,7 +20,6 @@ const page: FC<pageProps> = ({ }) => {
       <Threads />
       <ChatArea />
       <Profile username={user?.name || ''} />
-      <Nav />
     </div>
   )
 }

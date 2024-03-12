@@ -3,12 +3,13 @@ import { FC } from 'react'
 import { Button } from '@/components/ui/button'
 import { Message } from '@/components/chat/message'
 import { useChat } from 'ai/react'
+import { useUser } from '@auth0/nextjs-auth0/client'
 interface pageProps {
 
 }
 
 const ChatArea: FC<pageProps> = () => {
-  
+  const { user } = useUser()
   const { messages, setMessages, input, handleInputChange, handleSubmit } = useChat()
 
   const handleFileUpload = () => {
@@ -53,13 +54,14 @@ const ChatArea: FC<pageProps> = () => {
       <div className='flex items-center p-6 gap-3 bg-cyan-900'>
         <form onSubmit={handleSubmit} className='w-full'>
           <div className='flex'>
-            <div className='flex w-full'>
+            <img alt='picture' src={user.picture} className='w-10 h-10 rounded-full'/>
+            <div className='flex w-full mx-3'>
               <input className='w-full py-1 px-2 pr-6 border border-gray-200 rounded-md'
                      placeholder='Enter message'
                      value={input}
                      onChange={handleInputChange}/>
             </div>
-            <Button className='' type='submit'>Send</Button>
+            <Button type='submit'>Send</Button>
           </div>
         </form>
       </div>
@@ -69,4 +71,5 @@ const ChatArea: FC<pageProps> = () => {
 }
 
 export {
-  ChatArea }
+  ChatArea
+}
