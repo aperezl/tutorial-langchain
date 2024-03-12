@@ -13,7 +13,11 @@ interface pageProps {
 const ChatArea: FC<pageProps> = ({ assistant }) => {
   
   const { messages, setMessages, input, handleInputChange, handleSubmit } = useChat({
-    api: '/api/chat_v2'
+    api: '/api/chat_v2',
+    body: {
+      id: assistant.id
+    },
+    sendExtraMessageFields: true
   })
   const { user } = useUser()
   useEffect(() => {

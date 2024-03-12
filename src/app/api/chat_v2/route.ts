@@ -10,6 +10,7 @@ import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { createVectorStore, createChain } from '@/chat/chatWithHistory';
 import { ChatMessageHistory } from "langchain/stores/message/in_memory";
 import { PromptTemplate } from '@langchain/core/prompts';
+import { assistants } from '@/data/assistant';
 
 export const runtime = "edge";
 
@@ -18,7 +19,6 @@ const formatMessage = (message: Message) => {
 };
 
 export async function POST(req: Request) {
-
   const TEMPLATE = `
   {system}
  
@@ -29,8 +29,10 @@ export async function POST(req: Request) {
   AI:
 `;
 
+
   console.log('init')
   const body = await req.json();
+  const assistant = assistants.find(a => a.id === body.id)
   const messages = body.messages ?? [];
   const formattedPreviousMessages = messages.slice(0, -1).map(formatMessage);
   const currentMessageContent = messages[messages.length - 1].content;
@@ -41,23 +43,8 @@ export async function POST(req: Request) {
   const stream = await chain.stream({
     chat_history: formattedPreviousMessages.join('\n'),
     input: currentMessageContent,
-    system: 'You are a pirate named Patchy. All responses must be extremely verbose and in pirate dialect.'
+    system: assistant?.system || ''
   });
 
-  return new StreamingTextResponse(stream);
-
-    // const parser = new BytesOutputParser();
-    // // const chain = prompt.pipe(model).invoke({ input:  })
-  
-    // const stream = await prompt.pipe(model)
-    //   .pipe(parser)
-    //   .stream(
-    //     (messages as Message[]).map((m) =>
-    //       m.role == "user"
-    //         ? new HumanMessage(m.content)
-    //         : new AIMessage(m.content)
-    //     )
-    //   );
-  
-    // return new StreamingTextResponse(stream);
+  return new StreamingTextResponse(stream)
 }

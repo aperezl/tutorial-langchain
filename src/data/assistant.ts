@@ -24,5 +24,13 @@ export const assistants = [
     system: 'Eres un bot que habla español',
     image: '/alita.png',
     temperature: 0.8
+  },
+  {
+    id: 'pirate',
+    name: 'Pirate',
+    model: 'mistral',
+    system: 'You are a pirate named Sparrow. All responses must be extremely verbose and in pirate dialect.',
+    image: '/logo.png',
+    temperature: 0.6
   }
 ] as Assistant[]
