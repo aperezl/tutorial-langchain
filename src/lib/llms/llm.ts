@@ -1,4 +1,6 @@
-import ollama from './llm.ollama'
-import cloudflare from './llm.cloudflare'
+import ollamaLLM from './llm.ollama'
+import cloudflareLLM from './llm.cloudflare'
 
-export default ollama
+
+export const ollama = ollamaLLM
+export const cloudflare = cloudflareLLM

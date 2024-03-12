@@ -1,14 +1,8 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 import { StreamingTextResponse, Message } from 'ai'
-import { AIMessage, HumanMessage } from "@langchain/core/messages";
-import model from "@/lib/llms/llm"
+import  { ollama, cloudflare } from "@/lib/llms/llm"
 import { BytesOutputParser } from "@langchain/core/output_parsers";
-import { ChatPromptTemplate } from '@langchain/core/prompts'
-import { makeTemplateWithMessages } from '@/lib/prompts/templates';
-import { MemoryVectorStore } from 'langchain/vectorstores/memory';
-import { createVectorStore, createChain } from '@/chat/chatWithHistory';
-import { ChatMessageHistory } from "langchain/stores/message/in_memory";
 import { PromptTemplate } from '@langchain/core/prompts';
 import { assistants } from '@/data/assistant';
 
@@ -39,6 +33,7 @@ export async function POST(req: Request) {
 
   const prompt = PromptTemplate.fromTemplate(TEMPLATE);
   const outputParser = new BytesOutputParser();
+  const model = assistant?.model === 'ollama' ? ollama : cloudflare
   const chain = prompt.pipe(model).pipe(outputParser);
   const stream = await chain.stream({
     chat_history: formattedPreviousMessages.join('\n'),
