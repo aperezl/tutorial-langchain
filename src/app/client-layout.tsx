@@ -13,7 +13,6 @@ export const ClientLayout: React.FC<PropsWithChildren> = ({ children }) => {
     if (user)
         return (
             <>
-                <div><a href="/api/auth/logout">Logout</a></div>
                 {children}
             </>
         )
