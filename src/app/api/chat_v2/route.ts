@@ -9,7 +9,7 @@ import { makeTemplateWithMessages } from '@/lib/prompts/templates';
 import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { createVectorStore, createChain } from '@/chat/chatWithHistory';
 import { ChatMessageHistory } from "langchain/stores/message/in_memory";
-import { PromptTemplate } from 'langchain/prompts';
+import { PromptTemplate } from '@langchain/core/prompts';
 
 export const runtime = "edge";
 
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
   });
 
   return new StreamingTextResponse(stream);
-  
+
     // const parser = new BytesOutputParser();
     // // const chain = prompt.pipe(model).invoke({ input:  })
   

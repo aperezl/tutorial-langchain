@@ -1,8 +1,21 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { assistants } from '@/data/assistant'
 import Link from 'next/link'
 
+const Assistant = ({ id, name, model }: any) => {
+  return (
+    <Link href={`/demo/${id}`}>
+      <div className='flex py-3 border-b border-gray-100 hover:bg-gray-100 hover:-mx-6 transition-all cursor-pointer'>
+        <div className='flex flex-col relative w-12 h-12 shrink-0 before:absolute before:w-3 before:h-3 before:rounded-full before:bg-green-500 before:border-2 before:border-white'>
+          {name}
+        </div>
+        <span>Model: {model}</span>
+      </div>
+    </Link>
+  )
+}
 const Threads = () => (
     <div className='grow lg:shrink-0 overflow-y-auto lg:max-w-xs'>
       <div className='flex flex-col gap-3 p-6 bg-chat md:bg-white sticky top-0 z-10 border-b'>
@@ -35,13 +48,7 @@ const Threads = () => (
           <div>Ico</div>
           <span className='uppercase text-sm font-medium ml-3'>Bookmarked</span>
         </div>
-        <div>
-          <div className='flex py-3 border-b border-gray-100 hover:bg-gray-100 hover:-mx-6 transition-all cursor-pointer'>
-            <div className='relative w-12 h-12 shrink-0 before:absolute before:w-3 before:h-3 before:rounded-full before:bg-green-500 before:border-2 before:border-white'>
-              xxx
-            </div>
-          </div>
-        </div>
+        {assistants.map(({ id, name, model }) => <Assistant key={id} id={id} name={name} model={model} />)}
       </div>
     </div>
   )

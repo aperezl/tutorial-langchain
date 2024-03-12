@@ -4,11 +4,13 @@ import { Button } from '@/components/ui/button'
 import { Message } from '@/components/chat/message'
 import { useChat } from 'ai/react'
 import { useUser } from '@auth0/nextjs-auth0/client'
+import { Assistant } from '@/data/assistant'
 interface pageProps {
+  assistant: Assistant
 
 }
 
-const ChatArea: FC<pageProps> = () => {
+const ChatArea: FC<pageProps> = ({ assistant }) => {
   
   const { messages, setMessages, input, handleInputChange, handleSubmit } = useChat({
     api: '/api/chat_v2'
@@ -36,7 +38,7 @@ const ChatArea: FC<pageProps> = () => {
         </Button>
         <div className='w-12 h-12 shrink-0'>Image</div>
         <div className='flex flex-col ml-4'>
-          <div className='font-bold text-xl'>Bot</div>
+          <div className='font-bold text-xl'>{ assistant.name }</div>
           <span className='text-xs text-gray-400'>12 agents, 3 documents</span>
         </div>
         <div className='flex items-center space-x-6 ml-auto text-gray-400'>
