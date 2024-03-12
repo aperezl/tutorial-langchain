@@ -1,9 +1,15 @@
-const Message: any = ({ role, content }: any) => (
+'use client'
+
+import { useUser } from "@auth0/nextjs-auth0/client"
+
+const Message: any = ({ role, content }: any) => {
+  const { user } = useUser()
+  return (
   <div className='py-3'>
-    <div className={`flex ${role === 'user' ? 'justify-end' : ''}`}>
-      <div className={`relative w-16 h-16 shrink-0 ${role === 'user' ? 'ml-auto' : ''}`}>
+    <div className={`flex ${role === 'user' ? 'flex-row-reverse' : ''}`}>
+      <div className={`relative w-16 h-16 mx-3`}>
         <div className={`w-12 h-12 rounded-full justify-center items-center ${role === 'user' ? 'bg-green-400' : 'bg-slate-400'}`}>
-          {role}
+          <img alt='profile picture' src={user.picture} className='w-12 h-12 rounded-full'/>
         </div>
       </div>
       <div className='flex flex-col'>
@@ -16,5 +22,6 @@ const Message: any = ({ role, content }: any) => (
     </div>
   </div>
 )
+}
 
 export { Message }
