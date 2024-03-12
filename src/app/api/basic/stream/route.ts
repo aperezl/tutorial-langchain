@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server'
 import { StreamingTextResponse } from 'ai'
 import { BytesOutputParser } from '@langchain/core/output_parsers'
 
-import model from '@/llms/llm'
+import model from '@/lib/llms/llm'
 
 export const GET = async (req: NextRequest) => {
   const message = req.nextUrl.searchParams.get('message') as string

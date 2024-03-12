@@ -1,5 +1,7 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 import { NextRequest } from 'next/server'
-import model from '@/llms/llm'
+import model from '@/lib/llms/llm'
 
 export const GET = async (req: NextRequest) => {
   const message = req.nextUrl.searchParams.get('message') as string

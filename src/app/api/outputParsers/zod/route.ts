@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 
-import { getPromptWithParserZod } from '@/prompts/templates'
+import { getPromptWithParserZod } from '@/lib/prompts/templates'
 
 export const GET = async (req: NextRequest) => {
   try {

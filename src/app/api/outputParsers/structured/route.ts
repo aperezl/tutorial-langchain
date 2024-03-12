@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 
-import { getPromptWithParserStructured } from '@/prompts/templates'
+import { getPromptWithParserStructured } from '@/lib/prompts/templates'
 
 export const GET = async (req: NextRequest) => {
   try {

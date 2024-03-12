@@ -1,5 +1,5 @@
-import model from '@/llms/llm'
-import { makeTemplate } from '@/prompts/templates'
+import model from '@/lib/llms/llm'
+import { makeTemplate } from '@/lib/prompts/templates'
 
 export const getRetrival = async () => {
   const prompt = makeTemplate(`

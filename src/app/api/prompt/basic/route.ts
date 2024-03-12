@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 
-import { getChain } from '@/prompts/templates'
+import { getChain } from '@/lib/prompts/templates'
 
 export const GET = async (req: NextRequest) => {
   const input = req.nextUrl.searchParams.get('input') as string

@@ -1,8 +1,8 @@
 import { createStuffDocumentsChain } from 'langchain/chains/combine_documents'
 import { CheerioWebBaseLoader } from 'langchain/document_loaders/web/cheerio'
 
-import llm from '@/llms/llm'
-import { makeTemplate } from '@/prompts/templates'
+import llm from '@/lib/llms/llm'
+import { makeTemplate } from '@/lib/prompts/templates'
 
 export const getRetrival = async () => {
   const prompt = makeTemplate(`

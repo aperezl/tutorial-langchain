@@ -1,12 +1,12 @@
 import { CheerioWebBaseLoader } from 'langchain/document_loaders/web/cheerio'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
-import embeddings from '@/embeddings'
-import llm from '@/llms/llm'
+import embeddings from '@/lib/embeddings'
+import llm from '@/lib/llms/llm'
 import {
   makeRetrieverPrompt,
   makeTemplate,
   makeTemplateWithMessages
-} from '@/prompts/templates'
+} from '@/lib/prompts/templates'
 import { createStuffDocumentsChain } from 'langchain/chains/combine_documents'
 import { MemoryVectorStore } from 'langchain/vectorstores/memory'
 import { createRetrievalChain } from 'langchain/chains/retrieval'

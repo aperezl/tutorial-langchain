@@ -6,7 +6,7 @@ import {
 import { StructuredOutputParser } from 'langchain/output_parsers'
 import { z } from 'zod'
 import { MessagesPlaceholder } from '@langchain/core/prompts'
-import model from '@/llms/llm'
+import model from '@/lib/llms/llm'
 
 const prompt = ChatPromptTemplate.fromTemplate(
   'Eres un cómico que hablas en español. Cuenta un chiste relacionado con {input}'

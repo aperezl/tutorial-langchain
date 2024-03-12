@@ -2,10 +2,10 @@ import { createStuffDocumentsChain } from 'langchain/chains/combine_documents'
 import { CheerioWebBaseLoader } from 'langchain/document_loaders/web/cheerio'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 import { createRetrievalChain } from 'langchain/chains/retrieval'
-import llm from '@/llms/llm'
-import embeddings from '@/embeddings'
+import llm from '@/lib/llms/llm'
+import embeddings from '@/lib/embeddings'
 import { MemoryVectorStore } from 'langchain/vectorstores/memory'
-import { makeTemplate } from '@/prompts/templates'
+import { makeTemplate } from '@/lib/prompts/templates'
 
 export const getRetrival = async () => {
   const prompt = makeTemplate(`

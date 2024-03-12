@@ -1,8 +1,8 @@
 import { Document } from '@langchain/core/documents'
 import { createStuffDocumentsChain } from 'langchain/chains/combine_documents'
 
-import llm from '@/llms/llm'
-import { makeTemplate } from '@/prompts/templates'
+import llm from '@/lib/llms/llm'
+import { makeTemplate } from '@/lib/prompts/templates'
 
 export const getRetrival = async () => {
   const prompt = makeTemplate(`
