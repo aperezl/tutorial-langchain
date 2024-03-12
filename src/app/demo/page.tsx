@@ -1,7 +1,8 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { FC } from 'react'
-
 interface pageProps {}
 
 const Nav = () => (
@@ -99,9 +100,8 @@ const ChatArea = () => (
 
     <div className='flex items-center p-6 gap-3 bg-cyan-900'>
       <div className='flex flex-col flex-1 ml-4 h-24 p-1'>
-        <textarea className='border-2 w-full h-full bg-gray-200 rounded-md'>
-          Hola
-        </textarea>
+        <textarea defaultValue={''} className='border-2 w-full h-full bg-gray-200 rounded-md' />
+          
       </div>
       <div className='flex items-center space-x-6 ml-auto text-gray-400'>
         <Button className=''>Send</Button>
@@ -138,10 +138,10 @@ const Threads = () => (
       </div>
     </div>
     <div className='p-6'>
-      <p className='flex items-center text-gray-400'>
+      <div className='flex items-center text-gray-400'>
         <div>Ico</div>
         <span className='uppercase text-sm font-medium ml-3'>Bookmarked</span>
-      </p>
+      </div>
       <div>
         <div className='flex py-3 border-b border-gray-100 hover:bg-gray-100 hover:-mx-6 transition-all cursor-pointer'>
           <div className='relative w-12 h-12 shrink-0 before:absolute before:w-3 before:h-3 before:rounded-full before:bg-green-500 before:border-2 before:border-white'>
