@@ -1,7 +1,9 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 import { StreamingTextResponse, Message } from 'ai'
-import { AIMessage, HumanMessage } from "langchain/schema";
+import { AIMessage, HumanMessage } from "@langchain/core/messages";
 import model from "@/lib/llms/llm"
-import { BytesOutputParser } from "langchain/schema/output_parser";
+import { BytesOutputParser } from "@langchain/core/output_parsers";
 
 export const runtime = "edge";
 

@@ -1,4 +1,5 @@
 'use client'
+import { useChat } from 'ai/react';
 
 import { Nav } from '@/components/chat/nav'
 import { Profile } from '@/components/chat/profile'
@@ -8,6 +9,9 @@ import { FC } from 'react'
 interface pageProps {}
 
 const page: FC<pageProps> = ({}) => {
+
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
+
   return (
     <div className='flex flex-col lg:flex-row h-screen'>
       <Threads />
