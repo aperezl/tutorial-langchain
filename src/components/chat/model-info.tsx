@@ -1,8 +1,8 @@
 'use client'
-import { FC } from "react";
+import { Button } from "@/components/ui/button";
 import { Assistant } from "@/data/assistant";
-import {Button} from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
+import { FC } from "react";
 
 interface pageProps {
   assistant: Assistant
@@ -44,7 +44,7 @@ export const ModelInfo: FC<pageProps> = ({ assistant }) => {
       <div className='right-0 bottom-0 w-full p-5'>
         <Button onClick={() => {
           localStorage.removeItem(assistant.id)
-          router.replace('/demo')
+          router.replace('/')
         }}>Clear conversation</Button>
       </div>
     </>
