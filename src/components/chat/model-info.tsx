@@ -9,9 +9,9 @@ interface pageProps {
 }
 
 export const ModelInfo: FC<pageProps> = ({ assistant }) => {
-  const router = useRouter();
+  const router = useRouter()
 
-  return (  
+  return (
     <div className="p-6 pr-0 border-b border-gray-300 grow flex flex-col relative overflow-y-auto">
       <div className=''>
         <h3 className='text-lg font-bold'>Model info</h3>
@@ -39,7 +39,10 @@ export const ModelInfo: FC<pageProps> = ({ assistant }) => {
           <p className=''>{assistant.system}</p>
         </div>
       </div>
-      <div className='pt-6 px-2 text-right'>
+      <div className='pt-6 px-2 flex justify-between'>
+        <Button onClick={() => {
+          router.replace('/')
+        }}>&laquo; Back</Button>
         <Button onClick={() => {
           localStorage.removeItem(assistant.id)
           router.replace('/')
@@ -47,6 +50,6 @@ export const ModelInfo: FC<pageProps> = ({ assistant }) => {
       </div>
     </div>
   )
-  
+
 }
 

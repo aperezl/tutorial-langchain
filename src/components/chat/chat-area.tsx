@@ -16,12 +16,12 @@ function useChatScroll<T>(dep: T): any {
     if (ref.current) {
       ref.current.scrollTop = ref.current.scrollHeight;
     }
-  }, [dep]);
+  }, [dep])
   return ref
 }
 
 const ChatArea: FC<pageProps> = ({ assistant }) => {
-  
+
   const { messages, setMessages, input, handleInputChange, handleSubmit } = useChat({
     api: '/api/chat_v2',
     body: {
@@ -51,7 +51,7 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
       const file = event.target.files[0]
       console.log('Selected file:', file)
       const fileName = file.name
-      setMessages([...messages, { id: messages.length+1, content: `Uploaded: ${fileName}`, role: 'user'}])
+      setMessages([...messages, { id: messages.length + 1, content: `Uploaded: ${fileName}`, role: 'user' }])
     }
     inputFile.click()
   }
@@ -60,18 +60,18 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
     <div className='translate-x-full lg:translate-x-0 fixed inset-0 h-full lg:relative lg:inset-auto flex flex-col grow w-full border-x border-gray-100 bg-white z-10 transition'>
       <div className='flex items-center h-24 p-6'>
         <div className='w-12 h-12 shrink-0'>
-          <img alt='picture' src={ assistant.image } className='w-12 h-12 rounded-full'/>
+          <img alt='picture' src={assistant.image} className='w-12 h-12 rounded-full' />
         </div>
         <div className='flex flex-col ml-4'>
-          <div className='font-bold text-xl'>{ assistant.name }</div>
-          <span className='text-xs text-gray-400'>{ assistant.model }</span>
+          <div className='font-bold text-xl'>{assistant.name}</div>
+          <span className='text-xs text-gray-400'>{assistant.model}</span>
         </div>
         <div className='flex items-center space-x-6 ml-auto text-gray-400'>
           <Button className='' onClick={handleFileUpload}>Add document</Button>
         </div>
       </div>
 
-      <div className='flex flex-col grow p-6 bg-chat overflow-y-auto'  ref={ref}>
+      <div className='flex flex-col grow p-6 bg-chat overflow-y-auto' ref={ref}>
         {messages.map(m => (
           <div key={m.id}>
             <Message content={m.content} role={m.role} image={assistant.image} />
@@ -83,12 +83,12 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
       <div className='flex items-center p-6 gap-3 bg-cyan-900'>
         <form onSubmit={handleSubmit} className='w-full'>
           <div className='flex'>
-            <img alt='picture' src={user.picture} className='w-10 h-10 rounded-full'/>
+            <img alt='picture' src={user.picture} className='w-10 h-10 rounded-full' />
             <div className='flex w-full mx-3'>
               <input className='w-full py-1 px-2 pr-6 border border-gray-200 rounded-md'
-                     placeholder='Enter message'
-                     value={input}
-                     onChange={handleInputChange}/>
+                placeholder='Enter message'
+                value={input}
+                onChange={handleInputChange} />
             </div>
             <Button type='submit'>Send</Button>
           </div>

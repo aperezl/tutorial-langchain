@@ -69,7 +69,6 @@ const Threads = () => {
         <h1 className='font-bold text-xl'>Chats</h1>
       </div>
       <div className='flex items-center gap-3'>
-        <Button>All Chats</Button>
         <div className='relative w-full'>
           <label>
             <input
