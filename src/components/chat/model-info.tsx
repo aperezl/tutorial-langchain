@@ -1,8 +1,8 @@
 'use client'
-import { Button } from "@/components/ui/button";
-import { Assistant } from "@/data/assistant";
-import { useRouter } from 'next/navigation';
-import { FC } from "react";
+import { Button } from "@/components/ui/button"
+import { Assistant } from "@/data/assistant"
+import { useRouter } from 'next/navigation'
+import { FC } from "react"
 
 interface pageProps {
   assistant: Assistant
