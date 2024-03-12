@@ -12,20 +12,20 @@ export const ModelInfo: FC<pageProps> = ({ assistant }) => {
   const router = useRouter();
 
   return (  
-    <>
-      <div className='px-6 pt-20 pb-3 border-b border-gray-300'>
+    <div className="p-6 pr-0 border-b border-gray-300 grow flex flex-col relative overflow-y-auto">
+      <div className=''>
         <h3 className='text-lg font-bold'>Model info</h3>
       </div>
-      <div className='px-6 pt-3'>
-        <div className='flex mb-2'>
+      <div className='grow relative overflow-y-auto'>
+        <div className='flex m-3'>
           <div className='flex-1 font-bold'>Name:</div>
           <div className='flex-1'>{assistant.name}</div>
         </div>
-        <div className='flex mb-2'>
+        <div className='flex m-3'>
           <div className='flex-1 font-bold'>Model:</div>
           <div className='flex-1'>{assistant.model}</div>
         </div>
-        <div className='flex mb-2'>
+        <div className='flex m-3'>
           <div className='flex-1 font-bold'>Temperature:</div>
           <div className='flex-1 pt-2'>
             <div className="h-3 relative rounded-full overflow-hidden">
@@ -34,20 +34,18 @@ export const ModelInfo: FC<pageProps> = ({ assistant }) => {
             </div>
           </div>
         </div>
-        <div className='flex mb-2'>
-          <div className='flex-1 font-bold'>System:</div>
-        </div>
-        <div className='flex'>
-          <div className='flex-1'>{assistant.system}</div>
+        <div className='m-3'>
+          <div className='font-bold'>System:</div>
+          <p className=''>{assistant.system}</p>
         </div>
       </div>
-      <div className='right-0 bottom-0 w-full p-5'>
+      <div className='pt-6 px-2 text-right'>
         <Button onClick={() => {
           localStorage.removeItem(assistant.id)
           router.replace('/')
         }}>Clear conversation</Button>
       </div>
-    </>
+    </div>
   )
   
 }

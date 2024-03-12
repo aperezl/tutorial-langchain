@@ -11,7 +11,7 @@ export const Profile: any = () => {
   if (error) return <div>{error.message}</div>
   if (user)
     return (
-      <div className='p-6'>
+      <div className='p-6 border-b border-gray-400'>
         <div className='flex items-center justify-between mb-3'>
           <div className='w-10 h-10 rounded-full object-cover bg-green-600'>
             <img src={user.picture} className='w-10 h-10 rounded-full'/>
