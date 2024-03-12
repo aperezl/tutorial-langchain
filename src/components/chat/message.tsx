@@ -2,14 +2,14 @@
 
 import { useUser } from "@auth0/nextjs-auth0/client"
 
-const Message: any = ({ role, content }: any) => {
+const Message: any = ({ role, content, image }: any) => {
   const { user } = useUser()
   return (
   <div className='py-3'>
     <div className={`flex ${role === 'user' ? 'flex-row-reverse' : ''}`}>
       <div className={`relative w-16 h-16`}>
         <div className={`w-12 h-12 rounded-full text-center items-center ${role === 'user' ? 'ml-auto' : 'mr-auto'}`}>
-          <img alt='picture' src={role === 'user' ? user.picture : '/logo.png'} className='w-12 h-12 rounded-full'/>
+          <img alt='picture' src={role === 'user' ? user.picture : image} className='w-12 h-12 rounded-full'/>
         </div>
       </div>
       <div className='flex flex-col'>

@@ -43,13 +43,12 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
   return (
     <div className='translate-x-full lg:translate-x-0 fixed inset-0 h-full lg:relative lg:inset-auto flex flex-col grow w-full border-x border-gray-100 bg-white z-10 transition'>
       <div className='flex items-center h-24 p-6'>
-        <Button className='flex items-center justify-center mr-6 lg:hidden'>
-          Back to
-        </Button>
-        <div className='w-12 h-12 shrink-0'>Image</div>
+        <div className='w-12 h-12 shrink-0'>
+          <img alt='picture' src={ assistant.image } className='w-12 h-12 rounded-full'/>
+        </div>
         <div className='flex flex-col ml-4'>
           <div className='font-bold text-xl'>{ assistant.name }</div>
-          <span className='text-xs text-gray-400'>12 agents, 3 documents</span>
+          <span className='text-xs text-gray-400'>{ assistant.model }</span>
         </div>
         <div className='flex items-center space-x-6 ml-auto text-gray-400'>
           <Button className='' onClick={handleFileUpload}>Add document</Button>
@@ -59,7 +58,7 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
       <div className='flex flex-col grow p-6 bg-chat overflow-y-auto'>
         {messages.map(m => (
           <div key={m.id}>
-            <Message content={m.content} role={m.role} />
+            <Message content={m.content} role={m.role} image={assistant.image} />
           </div>
         ))}
 

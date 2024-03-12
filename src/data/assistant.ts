@@ -4,22 +4,25 @@ export type Assistant = {
   model: string
   system: string
   image: string
+  temperature: number
 }
 
 
 export const assistants = [
   {
-    id: 'aibo',
-    name: 'Aibo',
+    id: 'akira',
+    name: 'Toriyama',
     model: 'mistral',
     system: 'Eres un bot que habla español',
-    image: '/logo.png'
+    image: '/akira-toriyama.png',
+    temperature: 0.7
   },
   {
     id: 'alita',
     name: 'Alita',
     model: 'mistral',
     system: 'Eres un bot que habla español',
-    image: '/logo.png'
+    image: '/logo.png',
+    temperature: 0.8
   }
 ] as Assistant[]
