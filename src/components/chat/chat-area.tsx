@@ -9,7 +9,20 @@ interface pageProps {
 
 const ChatArea: FC<pageProps> = () => {
   
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, setMessages, input, handleInputChange, handleSubmit } = useChat()
+
+  const handleFileUpload = () => {
+    const inputFile = document.createElement('input')
+    inputFile.type = 'file'
+    //inputFile.accept = 'image/*, .pdf, .txt, .md'
+    inputFile.onchange = (event) => {
+      const file = event.target.files[0]
+      console.log('Selected file:', file)
+      const fileName = file.name
+      setMessages([...messages, { id: messages.length+1, content: `Uploaded: ${fileName}`, role: 'user'}])
+    }
+    inputFile.click()
+  }
 
   return (
     <div className='translate-x-full lg:translate-x-0 fixed inset-0 h-full lg:relative lg:inset-auto flex flex-col grow w-full border-x border-gray-100 bg-white z-10 transition'>
@@ -23,20 +36,20 @@ const ChatArea: FC<pageProps> = () => {
           <span className='text-xs text-gray-400'>12 agents, 3 documents</span>
         </div>
         <div className='flex items-center space-x-6 ml-auto text-gray-400'>
-          <Button className=''>Add document</Button>
+          <Button className='' onClick={handleFileUpload}>Add document</Button>
           <Button className=''>Add tool</Button>
         </div>
       </div>
-  
+
       <div className='flex flex-col grow p-6 bg-chat overflow-y-auto'>
-      {messages.map(m => (
-        <div key={m.id}>
-          <Message content={m.content} role={m.role} />
-        </div>
-      ))}
-        
+        {messages.map(m => (
+          <div key={m.id}>
+            <Message content={m.content} role={m.role} />
+          </div>
+        ))}
+
       </div>
-  
+
       <div className='flex items-center p-6 gap-3 bg-cyan-900'>
         <form onSubmit={handleSubmit} className='w-full'>
           <div className='flex'>
