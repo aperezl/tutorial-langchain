@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Message } from '@/components/chat/message'
 import { useChat } from 'ai/react'
@@ -16,6 +16,14 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
     api: '/api/chat_v2'
   })
   const { user } = useUser()
+  useEffect(() => {
+    console.log('load')
+    console.log(localStorage.getItem(assistant.id))
+    setMessages(JSON.parse(localStorage.getItem(assistant.id)))
+  }, [])
+  useEffect(() => {
+    localStorage.setItem(assistant.id, JSON.stringify(messages))
+  }, [messages])
 
   const handleFileUpload = () => {
     const inputFile = document.createElement('input')
