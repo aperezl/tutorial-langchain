@@ -22,7 +22,9 @@ const ChatArea: FC<pageProps> = ({ assistant }) => {
     setMessages(JSON.parse(localStorage.getItem(assistant.id)))
   }, [])
   useEffect(() => {
-    localStorage.setItem(assistant.id, JSON.stringify(messages))
+    if (messages.length !== 0) {
+      localStorage.setItem(assistant.id, JSON.stringify(messages))
+    }
   }, [messages])
 
   const handleFileUpload = () => {
