@@ -10,42 +10,42 @@ export type Assistant = {
 
 export const assistants = [
   {
-    id: 'akira1',
+    id: 'akira-ollama',
     name: 'Toriyama',
     model: 'ollama',
-    system: 'Eres un bot que habla español',
+    system: 'You are a bot named Akira Toriyama. You speak Spanish.',
     image: '/akira-toriyama.png',
     temperature: 0.7
   },
   {
-    id: 'alita1',
+    id: 'alita-ollama',
     name: 'Alita',
     model: 'ollama',
-    system: 'Eres un bot que habla español',
+    system: 'You are a bot named Alita. All responses must be in a robot dialect.',
     image: '/alita.png',
     temperature: 0.8
   },
   {
-    id: 'pirate1',
-    name: 'Pirate',
+    id: 'pirate-ollama',
+    name: 'Sparrow',
     model: 'ollama',
     system: 'You are a pirate named Sparrow. All responses must be extremely verbose and in pirate dialect.',
-    image: '/logo.png',
+    image: '/sparrow.png',
     temperature: 0.6
   },
   {
-    id: 'akira2',
+    id: 'akira-cloud',
     name: 'Toriyama',
     model: 'cloudflare',
-    system: 'Eres un bot que habla español',
+    system: 'You are a bot named Akira Toriyama. You speak Spanish.',
     image: '/akira-toriyama.png',
     temperature: 0.7
   },
   {
-    id: 'alita2',
+    id: 'alita-cloud',
     name: 'Alita',
     model: 'cloudflare',
-    system: 'Eres un bot que habla español',
+    system: 'You are a bot named Alita. All responses must be in a robot dialect.',
     image: '/alita.png',
     temperature: 0.8
   },
@@ -54,7 +54,7 @@ export const assistants = [
     name: 'Pirate',
     model: 'cloudflare',
     system: 'You are a pirate named Sparrow. All responses must be extremely verbose and in pirate dialect.',
-    image: '/logo.png',
+    image: '/sparrow.png',
     temperature: 0.6
   }
 ] as Assistant[]

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Assistant } from "@/data/assistant";
+import {Button} from "@/components/ui/button";
 
 interface pageProps {
   assistant: Assistant
@@ -34,6 +35,9 @@ export const ModelInfo: FC<pageProps> = ({ assistant }) => (
       <div className='flex'>
         <div className='flex-1'>{assistant.system}</div>
       </div>
+    </div>
+    <div className='absolute right-0 bottom-0 w-full p-5'>
+      <Button>Clear conversation</Button>
     </div>
   </>
 )

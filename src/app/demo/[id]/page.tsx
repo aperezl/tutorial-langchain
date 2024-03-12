@@ -22,7 +22,7 @@ const page: FC<pageProps> = ({ params }) => {
       <Threads />
       <div className='flex flex-row flex-1'>
         <ChatArea assistant={assistant} />
-        <div className='hidden lg:block w-full max-w-xs overflow-y-auto bg-slate-200'>
+        <div className='hidden lg:block w-full max-w-xs overflow-y-auto bg-slate-200 relative'>
           <Profile />
           <ModelInfo assistant={assistant} />
         </div>
