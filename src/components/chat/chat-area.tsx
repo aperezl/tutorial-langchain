@@ -23,8 +23,8 @@ const ChatArea: FC<pageProps> = () => {
           <span className='text-xs text-gray-400'>12 agents, 3 documents</span>
         </div>
         <div className='flex items-center space-x-6 ml-auto text-gray-400'>
-          <Button className=''>add Document</Button>
-          <Button className=''>add Tool</Button>
+          <Button className=''>Add document</Button>
+          <Button className=''>Add tool</Button>
         </div>
       </div>
   
@@ -38,18 +38,22 @@ const ChatArea: FC<pageProps> = () => {
       </div>
   
       <div className='flex items-center p-6 gap-3 bg-cyan-900'>
-        <form onSubmit={handleSubmit}>
-          <div className='flex flex-col flex-1 ml-4 h-24 p-1'>
-            {/* <textarea defaultValue={''} className='border-2 w-full h-full bg-gray-200 rounded-md' /> */}
-            <input value={input} onChange={handleInputChange} />
-          </div>
-          <div className='flex items-center space-x-6 ml-auto text-gray-400'>
+        <form onSubmit={handleSubmit} className='w-full'>
+          <div className='flex'>
+            <div className='flex w-full'>
+              <input className='w-full py-1 px-2 pr-6 border border-gray-200 rounded-md'
+                     placeholder='Enter message'
+                     value={input}
+                     onChange={handleInputChange}/>
+            </div>
             <Button className='' type='submit'>Send</Button>
           </div>
         </form>
       </div>
-    </div>) 
+    </div>
+  )
 
-  }
+}
 
-  export { ChatArea }
+export {
+  ChatArea }
