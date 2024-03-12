@@ -22,7 +22,7 @@ export const assistants = [
     name: 'Alita',
     model: 'mistral',
     system: 'Eres un bot que habla español',
-    image: '/logo.png',
+    image: '/alita.png',
     temperature: 0.8
   }
 ] as Assistant[]
