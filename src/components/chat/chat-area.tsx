@@ -38,7 +38,6 @@ const ChatArea: FC<pageProps> = () => {
         </div>
         <div className='flex items-center space-x-6 ml-auto text-gray-400'>
           <Button className='' onClick={handleFileUpload}>Add document</Button>
-          <Button className=''>Add tool</Button>
         </div>
       </div>
 
