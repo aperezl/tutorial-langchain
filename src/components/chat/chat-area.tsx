@@ -9,7 +9,9 @@ interface pageProps {
 
 const ChatArea: FC<pageProps> = () => {
   
-  const { messages, setMessages, input, handleInputChange, handleSubmit } = useChat()
+  const { messages, setMessages, input, handleInputChange, handleSubmit } = useChat({
+    api: '/api/chat_v2'
+  })
 
   const handleFileUpload = () => {
     const inputFile = document.createElement('input')
