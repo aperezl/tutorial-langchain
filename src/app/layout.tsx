@@ -5,8 +5,8 @@ import type { Metadata } from 'next';
 import { ClientLayout } from './client-layout';
 
 export const metadata: Metadata = {
-  title: 'Pied Piper',
-  description: 'Pied Piper'
+  title: 'PiedPiper',
+  description: 'PiedPiper'
 }
 
 export default function RootLayout({
