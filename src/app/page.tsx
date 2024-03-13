@@ -22,13 +22,13 @@ const page: FC<pageProps> = ({ }) => {
           <div className='grow relative overflow-y-auto'>
             <div className='my-6'>
               <h2 className='text-lg font-bold'>Opportunity</h2>
-              <p>Dependence on a single supplier (currently OpenAI) may generate certain risks.</p>
+              <p>Dependending on a single supplier (currently OpenAI) may generate certain risks</p>
               <ul className='list-disc list-inside ml-2'>
                 <li>
                   <strong>Security:</strong> It is complicated to know if the information will be used to retrain your model.
                 </li>
                 <li>
-                  <strong>Vendor lock-in:</strong> It is possible to be trapped in the vendor`s infrastructure.
+                  <strong>Vendor lock-in:</strong> It is possible to be trapped in the vendor's infrastructure.
                 </li>
                 <li>
                   <strong>Costs:</strong> By using free models in different vendors or even on-premise, costs can be optimized
@@ -47,7 +47,7 @@ const page: FC<pageProps> = ({ }) => {
             </div>
             <div className='my-6'>
               <h2 className='text-lg font-bold'>Impact</h2>
-              <p className='mb-2'>A <strong>local RAG</strong> using open source can be very useful to create customized wizards. Such wizards can be restricted by departments or groups, protecting confidential information to a certain group of people.</p>
+              <p className='mb-2'>A <strong>local RAG</strong> using open source can be very useful to create customized assistants. Such assistants can be restricted by departments or groups, protecting confidential information to a certain group of people.</p>
               <p className='mb-2'>In addition, the information will never leave the company's servers, so there would be no danger of information leakage.</p>
             </div>
           </div>
